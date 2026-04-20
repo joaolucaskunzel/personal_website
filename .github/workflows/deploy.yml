@@ -1,0 +1,31 @@
+name: Deploy Website to GCP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Sync files to VM
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.GCP_VM_IP }}
+          REMOTE_USER: ${{ secrets.GCP_SSH_USER }}
+          TARGET: /var/www/html/ 
+          SOURCE: ./
+          ARGS: "-avzr --delete"
+
+      - name: Restart Nginx
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.GCP_VM_IP }}
+          username: ${{ secrets.GCP_SSH_USER }}
+          key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
+          script: sudo systemctl reload nginx
