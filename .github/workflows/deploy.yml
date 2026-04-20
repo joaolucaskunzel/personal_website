@@ -34,4 +34,5 @@ jobs:
           host: ${{ secrets.GCP_VM_IP }}
           username: ${{ secrets.GCP_SSH_USER }}
           key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
-          script: sudo systemctl reload nginx
+          # We use sudo -n (non-interactive) just to be extra safe
+          script: sudo -n systemctl reload nginx
