@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+# This line fixes the warning you saw
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
