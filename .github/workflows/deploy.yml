@@ -24,6 +24,8 @@ jobs:
           REMOTE_USER: ${{ secrets.GCP_SSH_USER }}
           TARGET: /var/www/html/ 
           SOURCE: ./
+          # This tells rsync NOT to copy your git history or workflows to the web server
+          EXCLUDE: "/.git/, /.github/, .gitignore"
           ARGS: "-avzr --delete"
 
       - name: Restart Nginx
