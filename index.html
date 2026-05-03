@@ -204,6 +204,69 @@
             font-size: 0.9rem;
             opacity: 0.8;
         }
+				/* --- NEW CTA CONNECTION SECTION STYLES --- */
+		.cta-connect-section {
+			margin-top: 35px; /* Bigger space than the old note */
+			text-align: left; /* Makes the list read more like professional bullet points */
+			padding-top: 20px;
+			border-top: 2px dashed #ecf0f1; /* Gives it a nice visual separator */
+		}
+
+		.cta-title {
+			font-size: 1.4rem;
+			color: var(--primary-text);
+			margin-top: 0;
+			margin-bottom: 10px;
+		}
+
+		.cta-subtitle {
+			font-size: 1rem;
+			color: var(--secondary-text);
+			margin-bottom: 20px;
+			line-height: 1.5;
+		}
+
+		.cta-links-list {
+			display: flex;
+			flex-direction: column;
+			gap: 15px; /* Spacing between each item */
+		}
+
+		.cta-link-item {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			font-size: 1rem;
+		}
+
+		.cta-icon {
+			font-size: 1.3rem; /* Makes the emojis pop */
+		}
+
+		.cta-text {
+			font-weight: 600; /* Bold the main title (e.g., Email) */
+			color: var(--primary-text);
+			flex-shrink: 0; /* Prevents the text from squishing */
+		}
+
+		.cta-detail {
+			color: var(--secondary-text);
+			flex-grow: 1; /* Allows the detail text to take up available space */
+		}
+
+		.cta-link-action {
+			color: var(--accent);
+			text-decoration: none;
+			font-weight: 700; /* Make the actual link stand out */
+			transition: color 0.2s;
+		}
+
+		.cta-link-action:hover {
+			color: var(--accent-dark);
+			text-decoration: underline;
+		}
+		
+		
     </style>
 </head>
 <body>
@@ -219,20 +282,60 @@
                     I am a Data Scientist/ ML engineer with 8 years of experience transforming complex, raw datasets into high-impact, scalable AI and predictive models.
                 </p>
             </section>
+	                <p style="font-weight: 600; margin-bottom: 10px;">Core Expertise:</p>
 
-            <section id="skills">
-                <p style="font-weight: 600; margin-bottom: 10px;">Core Expertise:</p>
-                <div class="skills-list">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Scikit Learn / PyTorch</span>
-                    <span class="skill-tag">SQL / NoSQL</span>
-                    <span class="skill-tag">Cloud Computing (GCP)</span>
-                    <span class="skill-tag">Time-Series Analysis</span>
-                </div>
-                <a href="media/cv_.pdf" target="_blank" class="btn" style="margin-top: 20px;">
+            <!-- Add a heading or use CSS/JS to group these -->
+				<div class="skills-list">
+									<!-- Programming -->
+					<span class="skill-tag">Python</span>
+					<span class="skill-tag">SQL</span>
+					<span class="skill-tag">Pandas / NumPy</span>
+					
+					<!-- ML Frameworks -->
+					<span class="skill-tag">PyTorch</span>
+					<span class="skill-tag">Scikit Learn</span>
+					
+					<!-- Deployment/Cloud -->
+					<span class="skill-tag">GCP (Vertex AI)</span>
+					
+					<!-- Domain/Methodology -->
+					<span class="skill-tag">Predictive Modeling</span>
+					<span class="skill-tag">Time-Series Analysis</span>
+					<span class="skill-tag">MLOps</span>
+				</div>
+				<a href="media/cv_.pdf" target="_blank" class="btn" style="margin-top: 20px;">
                     📄 View Resume / CV
                 </a>
-            </section>
+				
+			
+            <div class="cta-connect-section">
+			<h3 class="cta-title"> Let's Connect & Collaborate</h3>
+			<p class="cta-subtitle">
+				If you want to geek out over Transformers, here's how we can get started:
+			</p>
+			
+			<div class="cta-links-list">
+				<div class="cta-link-item">
+					<span class="cta-icon">📞</span>
+					<span class="cta-text">Email: </span>
+					<span class="cta-detail"></span>
+					<a href="mailto:joaolucask@gmail.com" class="cta-link-action">joaolucask@gmail.com</a>
+				</div>
+				<div class="cta-link-item">
+					<span class="cta-icon">🐙</span>
+					<span class="cta-text">GitHub: </span>
+					<span class="cta-detail"></span>
+					<a href="https://github.com/joaolucaskunzel" target="_blank" class="cta-link-action">joaolucaskunzel</a>
+				</div>
+				<div class="cta-link-item">
+					<span class="cta-icon">💼</span>
+					<span class="cta-text">Linkedin: </span>
+					<span class="cta-detail"></span>
+					<a href="https://www.linkedin.com/in/jlbkunzel/" target="_blank" class="cta-link-action">jlbkunzel</a>
+				</div>
+
+			</div>
+		</div>
 
             <div class="service-highlight">
                 <h3>🛠️ Self-Hosted & Free Services</h3>
@@ -253,7 +356,7 @@
                 </div>
             </div>
 
-            <p class="more-note">Continuously learning and building.</p>
+
         </div>
     </main>
 
