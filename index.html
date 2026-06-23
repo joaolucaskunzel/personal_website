@@ -21,27 +21,116 @@
                     I am a Data Scientist/ ML engineer with 8 years of experience transforming complex, raw datasets into high-impact, scalable AI and predictive models.
                 </p>
             </section>
-	                <p style="font-weight: 600; margin-bottom: 10px;">Core Expertise:</p>
+                <!-- Core Expertise - Toggle Section -->
+                <button class="toggle-btn" id="btn-skills" onclick="toggleSection('skills-content', this)">
+                    <span class="toggle-icon">▸</span> Core Expertise
+                </button>
+                <div class="toggle-content" id="skills-content">
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Pandas / NumPy</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit Learn</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Predictive Maintenance</span>
+                        <span class="skill-tag">Time-Series Analysis</span>
+                        <span class="skill-tag">MLOps</span>
+                        <span class="skill-tag">Cloud Development</span>
+                        <span class="skill-tag">Industrial AI</span>
+                    </div>
+                </div>
 
-            <!-- Add a heading or use CSS/JS to group these -->
-				<div class="skills-list">
-									<!-- Programming -->
-					<span class="skill-tag">Python</span>
-					<span class="skill-tag">SQL</span>
-					<span class="skill-tag">Pandas / NumPy</span>
-					
-					<!-- ML Frameworks -->
-					<span class="skill-tag">PyTorch</span>
-					<span class="skill-tag">Scikit Learn</span>
-					
-					<!-- Deployment/Cloud -->
-					<span class="skill-tag">GCP (Vertex AI)</span>
-					
-					<!-- Domain/Methodology -->
-					<span class="skill-tag">Predictive Modeling</span>
-					<span class="skill-tag">Time-Series Analysis</span>
-					<span class="skill-tag">MLOps</span>
-				</div>
+                <!-- Major Projects - Toggle Section -->
+                <button class="toggle-btn" id="btn-projects" onclick="toggleSection('projects-content', this)">
+                    <span class="toggle-icon">▸</span> Major Projects
+                </button>
+                <div class="toggle-content" id="projects-content">
+                    <div class="projects-list">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <span class="project-icon">🏆</span>
+                                <div class="project-title-group">
+                                    <span class="project-title">Battery Preventive Maintenance Pipeline</span>
+                                    <span class="project-role">Data Scientist @ Renault</span>
+                                </div>
+                            </div>
+                            <p class="project-desc">Architected and deployed an end-to-end ML production pipeline on GCP (Vertex AI) for battery preventive maintenance. Automated model runs and monitoring, projecting €M+ annual savings by reducing battery field failures. <strong>Awarded Renault's Innovation Trophy.</strong></p>
+                            <div class="project-tags">
+                                <span class="project-tag">Vertex AI</span>
+                                <span class="project-tag">MLOps</span>
+                                <span class="project-tag">Anomaly Detection</span>
+                                <span class="project-tag">GCP</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <!-- <span class="project-icon">📊</span> -->
+                                <div class="project-title-group">
+                                    <span class="project-title">Petabyte-Scale Telemetry Pipelines</span>
+                                    <span class="project-role">Data Scientist @ Renault</span>
+                                </div>
+                            </div>
+                            <p class="project-desc">Engineered scalable data ingestion & ETL pipelines processing petabyte-scale vehicle telemetry. Optimized BigQuery partitioning and clustering, reducing query costs and enabling real-time model inference for fleet-wide performance.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">BigQuery</span>
+                                <span class="project-tag">ETL</span>
+                                <span class="project-tag">GCP</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <!-- <span class="project-icon">🔋</span> -->
+                                <div class="project-title-group">
+                                    <span class="project-title">Battery Dimensioning Application</span>
+                                    <span class="project-role">Data Scientist @ Renault</span>
+                                </div>
+                            </div>
+                            <p class="project-desc">Architected and deployed a cloud-native battery dimensioning platform on GCP, integrating real-world telemetry with physics-based simulations for precise battery sizing. Full-stack service using Python and Streamlit, utilized by Renault engineering teams to optimize battery coverage across diverse client driving profiles.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Streamlit</span>
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">GCP</span>
+                                <span class="project-tag">App Dev/Deployment</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <!-- <span class="project-icon">⚡</span> -->
+                                <div class="project-title-group">
+                                    <span class="project-title">Battery & Powertrain Analytics Platform</span>
+                                    <span class="project-role">Data Scientist @ Renault</span>
+                                </div>
+                            </div>
+                            <p class="project-desc">Architected the end-to-end industrialization of battery and powertrain analytics tools. Transformed raw vehicle telemetry into a scalable predictive service using Python and GCP deployment, providing automated battery SOH estimation, BMS fault estimation, and usage forecasting for millions of connected vehicles.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Industrial AI</span>
+                                <span class="project-tag">Time-Series</span>
+                                <span class="project-tag">GCP</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <!-- <span class="project-icon">🔍</span> -->
+                                <div class="project-title-group">
+                                    <span class="project-title">Anomaly Detection for Industrial QC</span>
+                                    <span class="project-role">Data Scientist @ Renault</span>
+                                </div>
+                            </div>
+                            <p class="project-desc">Developed an anomaly detection model using motor images for industrial quality control in PyTorch, enabling automated defect identification on the production line.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">PyTorch</span>
+                                <span class="project-tag">Computer Vision</span>
+                                <span class="project-tag">Anomaly Detection</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 				<a href="media/cv_.pdf" target="_blank" class="btn" style="margin-top: 20px;">
                     📄 View Resume / CV
                 </a>
@@ -55,7 +144,7 @@
 			
 			<div class="cta-links-list">
 				<div class="cta-link-item">
-					<span class="cta-icon">📞</span>
+					<span class="cta-icon">✉️</span>
 					<span class="cta-text">Email: </span>
 					<span class="cta-detail"></span>
 					<a href="mailto:joaolucask@gmail.com" class="cta-link-action">joaolucask@gmail.com</a>
@@ -77,7 +166,7 @@
 		</div>
 
             <div class="service-highlight">
-                <h3>🛠️ Self-Hosted & Free Services</h3>
+                <h3>Self-Hosted & Free Services</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 1rem; color: var(--secondary-text);">Privacy-focused utilities and AI experiments.</p>
                 
                 <div class="service-links">
