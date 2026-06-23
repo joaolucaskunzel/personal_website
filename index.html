@@ -5,190 +5,540 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joao Lucas Blum Kunzel | Data Scientist & ML Engineer</title>
     <meta name="description" content="Professional portfolio of Joao Lucas Blum Kunzel. Data Scientist with 8 years of experience in predictive modeling, machine learning, and scalable AI solutions.">
-    
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- VARIABLES & BASE STYLES --- */
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --primary-text: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --accent: #3498db;
+            --accent-dark: #2980b9;
+            --online-color: #2ecc71;
+            --offline-color: #e74c3c;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--primary-text);
+            line-height: 1.6;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 95%;
+            overflow: hidden;
+            text-align: center;
+        }
+        .profile-photo {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            object-position: center;
+            background-color: #fff;
+            border-bottom: 5px solid var(--accent);
+        }
+        .card-content {
+            padding: 2.5rem 1.5rem;
+        }
+        .header-section h1 {
+            margin-top: 0;
+            margin-bottom: 0.1rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+        .header-section .role {
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            display: block;
+        }
+        p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        /* --- TOGGLE SECTIONS --- */
+        .toggle-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            background-color: #ecf0f1;
+            color: var(--primary-text);
+            border: none;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 6px;
+            text-align: left;
+        }
+        .toggle-btn:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-1px);
+        }
+        .toggle-btn .toggle-icon {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+        .toggle-btn.is-open .toggle-icon {
+            transform: rotate(90deg);
+        }
+        .toggle-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.3s ease;
+            opacity: 0;
+            margin-bottom: 0;
+        }
+        .toggle-content.is-open {
+            max-height: 2000px;
+            opacity: 1;
+            margin-bottom: 16px;
+        }
+        /* --- SKILLS --- */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 0 5px 0;
+        }
+        .skill-tag {
+            background-color: #ecf0f1;
+            color: var(--primary-text);
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+        .skill-tag:hover {
+            background-color: var(--accent);
+            color: white;
+            cursor: default;
+        }
+        /* --- PROJECTS --- */
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding: 15px 0 5px 0;
+        }
+        .project-card {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: left;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        .project-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .project-title-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .project-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-text);
+        }
+        .project-role {
+            font-size: 0.8rem;
+            color: var(--secondary-text);
+            font-weight: 500;
+        }
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--primary-text);
+            margin: 0 0 10px 0;
+            line-height: 1.5;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .project-tag {
+            background-color: #e3f0fa;
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+        /* --- BUTTONS --- */
+        .btn {
+            display: block;
+            background-color: var(--accent);
+            color: white;
+            padding: 14px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+        .btn:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: var(--secondary-text);
+            padding: 18px 25px;
+        }
+        .btn-secondary:hover {
+            background-color: #5c6f79;
+        }
+        .status-dot {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #95a5a6;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: background-color 0.3s;
+        }
+        .status-label {
+            position: absolute;
+            top: 8px;
+            right: 25px;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 800;
+            opacity: 0.7;
+        }
+        .is-online .status-dot {
+            background-color: var(--online-color);
+            box-shadow: 0 0 8px var(--online-color);
+            animation: pulse 2s infinite;
+        }
+        .is-online .status-label { color: #d1f2eb; opacity: 1; }
+        .is-offline .status-dot {
+            background-color: var(--offline-color);
+            box-shadow: none;
+        }
+        .is-offline .status-label { color: #fadbd8; opacity: 1; }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 5px rgba(46, 204, 113, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+        }
+        .more-note {
+            margin-top: 30px;
+            font-style: italic;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        /* --- CTA CONNECTION SECTION --- */
+        .cta-connect-section {
+            margin-top: 35px;
+            text-align: left;
+            padding-top: 20px;
+            border-top: 2px dashed #ecf0f1;
+        }
+        .cta-title {
+            font-size: 1.4rem;
+            color: var(--primary-text);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .cta-subtitle {
+            font-size: 1rem;
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .cta-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .cta-link-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+        .cta-icon {
+            font-size: 1.3rem;
+        }
+        .cta-text {
+            font-weight: 600;
+            color: var(--primary-text);
+            flex-shrink: 0;
+        }
+        .cta-detail {
+            color: var(--secondary-text);
+            flex-grow: 1;
+        }
+        .cta-link-action {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        .cta-link-action:hover {
+            color: var(--accent-dark);
+            text-decoration: underline;
+        }
+        /* --- SERVICE HIGHLIGHT --- */
+        .service-highlight {
+            background-color: #ecf0f1;
+            padding: 1.5rem 1rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        .service-highlight h3 {
+            margin-top: 0;
+            color: var(--primary-text);
+            font-size: 1.1rem;
+        }
+        .service-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
-
     <main class="card">
         <img src="media/jlb_profile.jpg" alt="Professional Portrait of Joao Lucas Blum Kunzel" class="profile-photo">
-        
         <div class="card-content">
             <section class="header-section">
                 <h1>Joao Lucas Blum Kunzel</h1>
                 <span class="role">Data Scientist | Machine Learning Engineer</span>
-                <p>
-                    I am a Data Scientist/ ML engineer with 8 years of experience transforming complex, raw datasets into high-impact, scalable AI and predictive models.
-                </p>
+                <p>I am a Data Scientist/ ML engineer with 8 years of experience transforming complex, raw datasets into high-impact, scalable AI and predictive models.</p>
             </section>
-                <!-- Core Expertise - Toggle Section -->
-                <button class="toggle-btn" id="btn-skills" onclick="toggleSection('skills-content', this)">
-                    <span class="toggle-icon">▸</span> Core Expertise
-                </button>
-                <div class="toggle-content" id="skills-content">
-                    <div class="skills-list">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Pandas / NumPy</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Scikit Learn</span>
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">Predictive Maintenance</span>
-                        <span class="skill-tag">Time-Series Analysis</span>
-                        <span class="skill-tag">MLOps</span>
-                        <span class="skill-tag">Cloud Development</span>
-                        <span class="skill-tag">Industrial AI</span>
-                    </div>
+
+            <!-- Core Expertise -->
+            <button class="toggle-btn" id="btn-skills" onclick="toggleSection('skills-content', this)">
+                <span class="toggle-icon">▸</span> Core Expertise
+            </button>
+            <div class="toggle-content" id="skills-content">
+                <div class="skills-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Pandas / NumPy</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Scikit Learn</span>
+                    <span class="skill-tag">GCP</span>
+                    <span class="skill-tag">Predictive Maintenance</span>
+                    <span class="skill-tag">Time-Series Analysis</span>
+                    <span class="skill-tag">MLOps</span>
+                    <span class="skill-tag">Cloud Development</span>
+                    <span class="skill-tag">Industrial AI</span>
                 </div>
+            </div>
 
-                <!-- Major Projects - Toggle Section -->
-                <button class="toggle-btn" id="btn-projects" onclick="toggleSection('projects-content', this)">
-                    <span class="toggle-icon">▸</span> Major Projects
-                </button>
-                <div class="toggle-content" id="projects-content">
-                    <div class="projects-list">
-                        <div class="project-card">
-                            <div class="project-header">
-                                <span class="project-icon">🏆</span>
-                                <div class="project-title-group">
-                                    <span class="project-title">Battery Preventive Maintenance Pipeline</span>
-                                    <span class="project-role">Data Scientist @ Renault</span>
-                                </div>
-                            </div>
-                            <p class="project-desc">Architected and deployed an end-to-end ML production pipeline on GCP (Vertex AI) for battery preventive maintenance. Automated model runs and monitoring, projecting €M+ annual savings by reducing battery field failures. <strong>Awarded Renault's Innovation Trophy.</strong></p>
-                            <div class="project-tags">
-                                <span class="project-tag">Vertex AI</span>
-                                <span class="project-tag">MLOps</span>
-                                <span class="project-tag">Anomaly Detection</span>
-                                <span class="project-tag">GCP</span>
+            <!-- Major Projects -->
+            <button class="toggle-btn" id="btn-projects" onclick="toggleSection('projects-content', this)">
+                <span class="toggle-icon">▸</span> Major Projects
+            </button>
+            <div class="toggle-content" id="projects-content">
+                <div class="projects-list">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-icon">🏆</span>
+                            <div class="project-title-group">
+                                <span class="project-title">Battery Preventive Maintenance Pipeline</span>
+                                <span class="project-role">Data Scientist @ Renault</span>
                             </div>
                         </div>
-
-                        <div class="project-card">
-                            <div class="project-header">
-                                <!-- <span class="project-icon">📊</span> -->
-                                <div class="project-title-group">
-                                    <span class="project-title">Petabyte-Scale Telemetry Pipelines</span>
-                                    <span class="project-role">Data Scientist @ Renault</span>
-                                </div>
-                            </div>
-                            <p class="project-desc">Engineered scalable data ingestion & ETL pipelines processing petabyte-scale vehicle telemetry. Optimized BigQuery partitioning and clustering, reducing query costs and enabling real-time model inference for fleet-wide performance.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">BigQuery</span>
-                                <span class="project-tag">ETL</span>
-                                <span class="project-tag">GCP</span>
+                        <p class="project-desc">Architected and deployed an end-to-end ML production pipeline on GCP (Vertex AI) for battery preventive maintenance. Automated model runs and monitoring, projecting €M+ annual savings by reducing battery field failures. <strong>Awarded Renault's Innovation Trophy.</strong></p>
+                        <div class="project-tags">
+                            <span class="project-tag">Vertex AI</span>
+                            <span class="project-tag">MLOps</span>
+                            <span class="project-tag">Anomaly Detection</span>
+                            <span class="project-tag">GCP</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-title-group">
+                                <span class="project-title">Petabyte-Scale Telemetry Pipelines</span>
+                                <span class="project-role">Data Scientist @ Renault</span>
                             </div>
                         </div>
-
-                        <div class="project-card">
-                            <div class="project-header">
-                                <!-- <span class="project-icon">🔋</span> -->
-                                <div class="project-title-group">
-                                    <span class="project-title">Battery Dimensioning Application</span>
-                                    <span class="project-role">Data Scientist @ Renault</span>
-                                </div>
-                            </div>
-                            <p class="project-desc">Architected and deployed a cloud-native battery dimensioning platform on GCP, integrating real-world telemetry with physics-based simulations for precise battery sizing. Full-stack service using Python and Streamlit, utilized by Renault engineering teams to optimize battery coverage across diverse client driving profiles.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Streamlit</span>
-                                <span class="project-tag">Python</span>
-                                <span class="project-tag">GCP</span>
-                                <span class="project-tag">App Dev/Deployment</span>
+                        <p class="project-desc">Engineered scalable data ingestion & ETL pipelines processing petabyte-scale vehicle telemetry. Optimized BigQuery partitioning and clustering, reducing query costs and enabling real-time model inference for fleet-wide performance.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">BigQuery</span>
+                            <span class="project-tag">ETL</span>
+                            <span class="project-tag">GCP</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-title-group">
+                                <span class="project-title">Battery Dimensioning Application</span>
+                                <span class="project-role">Data Scientist @ Renault</span>
                             </div>
                         </div>
-
-                        <div class="project-card">
-                            <div class="project-header">
-                                <!-- <span class="project-icon">⚡</span> -->
-                                <div class="project-title-group">
-                                    <span class="project-title">Battery & Powertrain Analytics Platform</span>
-                                    <span class="project-role">Data Scientist @ Renault</span>
-                                </div>
-                            </div>
-                            <p class="project-desc">Architected the end-to-end industrialization of battery and powertrain analytics tools. Transformed raw vehicle telemetry into a scalable predictive service using Python and GCP deployment, providing automated battery SOH estimation, BMS fault estimation, and usage forecasting for millions of connected vehicles.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Industrial AI</span>
-                                <span class="project-tag">Time-Series</span>
-                                <span class="project-tag">GCP</span>
+                        <p class="project-desc">Architected and deployed a cloud-native battery dimensioning platform on GCP, integrating real-world telemetry with physics-based simulations for precise battery sizing. Full-stack service using Python and Streamlit, utilized by Renault engineering teams to optimize battery coverage across diverse client driving profiles.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Streamlit</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">GCP</span>
+                            <span class="project-tag">App Dev/Deployment</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-title-group">
+                                <span class="project-title">Battery & Powertrain Analytics Platform</span>
+                                <span class="project-role">Data Scientist @ Renault</span>
                             </div>
                         </div>
-
-                        <div class="project-card">
-                            <div class="project-header">
-                                <!-- <span class="project-icon">🔍</span> -->
-                                <div class="project-title-group">
-                                    <span class="project-title">Anomaly Detection for Industrial QC</span>
-                                    <span class="project-role">Data Scientist @ Renault</span>
-                                </div>
+                        <p class="project-desc">Architected the end-to-end industrialization of battery and powertrain analytics tools. Transformed raw vehicle telemetry into a scalable predictive service using Python and GCP deployment, providing automated battery SOH estimation, BMS fault estimation, and usage forecasting for millions of connected vehicles.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Industrial AI</span>
+                            <span class="project-tag">Time-Series</span>
+                            <span class="project-tag">GCP</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-title-group">
+                                <span class="project-title">Anomaly Detection for Industrial QC</span>
+                                <span class="project-role">Data Scientist @ Renault</span>
                             </div>
-                            <p class="project-desc">Developed an anomaly detection model using motor images for industrial quality control in PyTorch, enabling automated defect identification on the production line.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">PyTorch</span>
-                                <span class="project-tag">Computer Vision</span>
-                                <span class="project-tag">Anomaly Detection</span>
-                            </div>
+                        </div>
+                        <p class="project-desc">Developed an anomaly detection model using motor images for industrial quality control in PyTorch, enabling automated defect identification on the production line.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">PyTorch</span>
+                            <span class="project-tag">Computer Vision</span>
+                            <span class="project-tag">Anomaly Detection</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-				<a href="media/cv_.pdf" target="_blank" class="btn" style="margin-top: 20px;">
-                    📄 View Resume / CV
-                </a>
-				
-			
+            <a href="media/cv_.pdf" target="_blank" class="btn" style="margin-top: 20px;">📄 View Resume / CV</a>
+
             <div class="cta-connect-section">
-			<h3 class="cta-title"> Let's Connect & Collaborate</h3>
-			<p class="cta-subtitle">
-				If you want to geek out over Transformers, here's how we can get started:
-			</p>
-			
-			<div class="cta-links-list">
-				<div class="cta-link-item">
-					<span class="cta-icon">✉️</span>
-					<span class="cta-text">Email: </span>
-					<span class="cta-detail"></span>
-					<a href="mailto:joaolucask@gmail.com" class="cta-link-action">joaolucask@gmail.com</a>
-				</div>
-				<div class="cta-link-item">
-					<span class="cta-icon">🐙</span>
-					<span class="cta-text">GitHub: </span>
-					<span class="cta-detail"></span>
-					<a href="https://github.com/joaolucaskunzel" target="_blank" class="cta-link-action">joaolucaskunzel</a>
-				</div>
-				<div class="cta-link-item">
-					<span class="cta-icon">💼</span>
-					<span class="cta-text">Linkedin: </span>
-					<span class="cta-detail"></span>
-					<a href="https://www.linkedin.com/in/jlbkunzel/" target="_blank" class="cta-link-action">jlbkunzel</a>
-				</div>
-
-			</div>
-		</div>
+                <h3 class="cta-title">Let's Connect & Collaborate</h3>
+                <p class="cta-subtitle">If you want to geek out over Transformers, here's how we can get started:</p>
+                <div class="cta-links-list">
+                    <div class="cta-link-item">
+                        <span class="cta-icon">✉️</span>
+                        <span class="cta-text">Email: </span>
+                        <span class="cta-detail"></span>
+                        <a href="mailto:joaolucask@gmail.com" class="cta-link-action">joaolucask@gmail.com</a>
+                    </div>
+                    <div class="cta-link-item">
+                        <span class="cta-icon">🐙</span>
+                        <span class="cta-text">GitHub: </span>
+                        <span class="cta-detail"></span>
+                        <a href="https://github.com/joaolucaskunzel" target="_blank" class="cta-link-action">joaolucaskunzel</a>
+                    </div>
+                    <div class="cta-link-item">
+                        <span class="cta-icon">💼</span>
+                        <span class="cta-text">Linkedin: </span>
+                        <span class="cta-detail"></span>
+                        <a href="https://www.linkedin.com/in/jlbkunzel/" target="_blank" class="cta-link-action">jlbkunzel</a>
+                    </div>
+                </div>
+            </div>
 
             <div class="service-highlight">
                 <h3>Self-Hosted & Free Services</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 1rem; color: var(--secondary-text);">Privacy-focused utilities and AI experiments.</p>
-                
                 <div class="service-links">
                     <a href="https://jlbkunzel.com/srch/" target="_blank" class="btn btn-secondary" id="btn-searx">
                         <span class="status-label" id="label-searx">Checking</span>
                         <span class="status-dot"></span>
                         🔎 SearXNG Search
                     </a>
-
                     <a href="https://gpt.jlbkunzel.com/" target="_blank" class="btn btn-secondary" id="btn-gpt">
                         <span class="status-label" id="label-gpt">Checking</span>
                         <span class="status-dot"></span>
-                        🧠 AI Assistant 
+                        🧠 AI Assistant
                     </a>
                 </div>
             </div>
-
-
         </div>
     </main>
-
-    <script src="script.js"></script>
-
+    <script>
+        function toggleSection(contentId, btn) {
+            const content = document.getElementById(contentId);
+            const icon = btn.querySelector('.toggle-icon');
+            if (content.classList.contains('is-open')) {
+                content.classList.remove('is-open');
+                btn.classList.remove('is-open');
+                icon.textContent = '▸';
+            } else {
+                document.querySelectorAll('.toggle-content.is-open').forEach(el => {
+                    if (el.id !== contentId) {
+                        el.classList.remove('is-open');
+                        const relatedBtn = document.querySelector(`[onclick="toggleSection('${el.id}', this)"]`);
+                        if (relatedBtn) {
+                            relatedBtn.classList.remove('is-open');
+                            relatedBtn.querySelector('.toggle-icon').textContent = '▸';
+                        }
+                    }
+                });
+                content.classList.add('is-open');
+                btn.classList.add('is-open');
+                icon.textContent = '▾';
+            }
+        }
+        async function checkStatus(url, btnId, labelId) {
+            const btn = document.getElementById(btnId);
+            const label = document.getElementById(labelId);
+            const workerUrl = 'https://service-checker.joao-lucas-k.workers.dev/';
+            try {
+                const response = await fetch(`${workerUrl}?url=${encodeURIComponent(url)}`);
+                const data = await response.json();
+                if (data.online) {
+                    btn.classList.add('is-online');
+                    label.innerText = 'Online';
+                } else {
+                    throw new Error('Service reported offline');
+                }
+            } catch (error) {
+                btn.classList.add('is-offline');
+                label.innerText = 'Offline';
+            }
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            checkStatus('https://jlbkunzel.com/srch/', 'btn-searx', 'label-searx');
+            checkStatus('https://gpt.jlbkunzel.com/', 'btn-gpt', 'label-gpt');
+        });
+    </script>
 </body>
 </html>
